@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="p5.js"></script>
+  <script src="Workhorse Libraries/customerCSVtoJSON.js"></script>
+  <script src="Workhorse Libraries/buildSynonyms.js"></script>
+  <script src="Workhorse Libraries/updateCustomerJSON.js"></script>
+  <script src="Workhorse Libraries/updateApexDemo.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+
+</head>
+
+<body>
+
+  <div>
+    <h1>Welcome to the Synonym Demo, Version 1</h1>
+    <p>No fancy stuff, just a bare bones demo. Input files are loaded automatically.
+       After some background and motivation a series of buttons takes you through the code execution.
+       At each stage you can save the file, with the exception of the last stage that produces 
+       the Shima Seiki Apex sizing file.
+     <br><br>
+
+      The UI synonyms design prototype will let you change the input files. 
+      Or you can do this by hand in the code. Note well this code is pre-alpha! It is a first draft!
+    </p>
+    <h2>Problem Statement:</h2>
+    <p>When designing a garment, Jackie Altmeter has to translate a
+      customer tech pack sizing chart to an APEX specification by hand based
+      on her interpretation of the terminology in the teck pack.</p>
+  </div>
+  <div>
+    <p>These are the steps</p>
+    <ol>
+      <li>Start an APEX session by pointing and clicking to the sizing chart.</li>
+      <img src="Image Assets/APEX original table.png" alt="Apex table example" width=600>
+
+
+
+
+      <li>For each line of sizing chart,
+        locate the corresponding attribute in the customer sizing chart and enter it into the
+        <b>USER</b> column of the APEX chart.  Note that only one sized garment is made with an APEX run.
+      </li> <img src="Image Assets/PilotCustomerSizingChart.png" width=600
+        alt="shows pilot customer sizing chart tech pack">
+    </ol>
+
+
+
+    <p>The pain point is moving the sizing information by hand in part because of potential error, but more importantly
+      <b>because the labeling and order in the charts may differ!</b>
+    </p>
+    <h2>Useful insights</h2>
+    <p>The APEX sizing chart screen allows the APEX programmer to save and load the APEX chart as a .csv. </p>
+    <p>The minimum requirement on the customer tech pack sizing chart is that it needs to be machine readable to convert
+      it to
+      a 'flat' spreadsheet that is saved as a .csv file.
+      In this demo the flat spreadsheet was produced by hand. Proposed solutions will appear in the 
+      Build Sizing
+      Synonyms Design Proposal</p>
+    <p>In a video recording Jackie walked Ursula through the translation process from customer sheet (called the
+      CustomerPilot)
+      to the corresponding APEX cells. By hand,
+      Ursula created a two column spreadsheet matching the names according to Jackie's talk through. Ursula also created
+      a two column sheet for the sizing types, e.g S/Small, M/Medium etc.
+      Proposed solutions will appear in the Build Sizing Synonyms Design Proposal</p>
+    <p>Note that the sizing charts display measurements in 'string fractions', but the APEX sizing chart .csv produces
+      real numbers. This has been solved going from string fraction to real but not in reverse. It appears we won't need
+      that as explained in the Build Sizing Synonyms Design Proposal.</p>
+    <h2>Solution Description - This is not a specification</h2>
+    <p>Given four .csv files:
+    <ul>
+      <li>the Apex sizing chart</li>
+      <li>the flattened Customer Pilot sizing chart,</li>
+      <li>the measurement label translations</li>
+      <li>the size labels</li>
+    </ul>
+    <p>Generate a set of knowledge structures that eventually match a measurement cell in the customer chart to the apex
+      chart.</p>
+    <p>For each cell in the specified column in the customer .csv, replace the corresponding cell in the APEX .csv</p>
+    <img src="Image Assets/customerChartAnnotated.png" alt="shows a sample cell in the customer pack">
+    <img src="Image Assets/APEX table annotated.png" alt="shows sample cell in the APEX pack">
+    <h2>Process Diagram</h2>
+    <img src="Image Assets/ProcessDiagram.001.png" , alt="shows diagram of process">
+    
+    <script src="sketch.js"></script>
+  </div>
+
+</body>
+
+</html>

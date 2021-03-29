@@ -1,0 +1,6 @@
+Sizes,0
+User,no mapping
+S,Small Requested,SetApex,Small Receive,GetApex
+M,Medium Requested,SetApex,Medium Receive,GetApex
+L,Large Requested,SetApex,Large Receive,GetApex
+LL,X-Large Requested,SetApex,X-Large Receive,GetApex
